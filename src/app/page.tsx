@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import AboutSection from "@/components/sections/about-section";
 
 export default function Home() {
   return (
+    <>
     <section className="relative min-h-screen flex items-center">
       {/* Background abstraction */}
       <div className="pointer-events-none absolute inset-0 -z-10">
@@ -47,5 +49,9 @@ export default function Home() {
         </div>
       </div>
     </section>
+    <AboutSection />
+    </>
   );
 }
+
+// moved AboutSection to components/sections/about-section
