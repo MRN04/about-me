@@ -18,7 +18,7 @@ export default function Home() {
             Привіт! Я — фронтенд‑розробник
             <br />
             <span className="bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-rose-500 bg-clip-text text-transparent">
-              з понад 1 роком досвіду
+              я створюю сучасні веб‑інтерфейси
             </span>
             .
           </h1>
@@ -34,7 +34,7 @@ export default function Home() {
               <a href="#projects">Переглянути проєкти</a>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <a href="#contact">Зв’затися</a>
+              <a href="#contact">Зв’язатися</a>
             </Button>
           </div>
 
