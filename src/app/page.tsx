@@ -1,14 +1,18 @@
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+
 export default function Home() {
   return (
     <section className="relative min-h-screen flex items-center">
-      {/* Decorative background */}
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(50%_50%_at_50%_0%,rgba(120,119,198,0.12)_0%,rgba(255,255,255,0)_60%)] dark:bg-[radial-gradient(50%_50%_at_50%_0%,rgba(120,119,198,0.15)_0%,rgba(10,10,10,0)_60%)]" />
+      {/* Background abstraction */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(50%_50%_at_50%_0%,oklch(0.7_0.12_280_/_0.18)_0%,transparent_60%)] dark:bg-[radial-gradient(50%_50%_at_50%_0%,oklch(0.7_0.12_280_/_0.22)_0%,transparent_60%)]" />
+        <div className="absolute left-1/2 top-1/2 size-[720px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl bg-[conic-gradient(from_180deg_at_50%_50%,oklch(0.78_0.16_302_/_0.18)_0deg,oklch(0.84_0.14_350_/_0.16)_120deg,oklch(0.85_0.16_20_/_0.14)_240deg,oklch(0.78_0.16_302_/_0.18)_360deg)]" />
+      </div>
 
       <div className="mx-auto w-full max-w-7xl px-6 md:px-10">
         <div className="max-w-4xl">
-          <span className="inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-foreground/[.04] px-3 py-1 text-xs font-medium text-foreground/70">
-            Frontend Developer
-          </span>
+          <Badge variant="secondary" className="rounded-full px-3 py-1">Frontend Developer</Badge>
 
           <h1 className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
             Привіт! Я — фронтенд‑розробник
@@ -26,25 +30,19 @@ export default function Home() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <a
-              href="#projects"
-              className="inline-flex h-11 items-center justify-center rounded-full bg-foreground px-6 text-sm font-medium text-background shadow-sm transition-colors hover:opacity-90"
-            >
-              Переглянути проєкти
-            </a>
-            <a
-              href="#contact"
-              className="inline-flex h-11 items-center justify-center rounded-full border border-foreground/20 bg-transparent px-6 text-sm font-medium text-foreground/90 transition-colors hover:bg-foreground/[.04]"
-            >
-              Зв’затися
-            </a>
+            <Button asChild size="lg">
+              <a href="#projects">Переглянути проєкти</a>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <a href="#contact">Зв’затися</a>
+            </Button>
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-2 text-sm text-foreground/70">
-            <span className="rounded-full border border-foreground/15 bg-foreground/[.04] px-3 py-1">React</span>
-            <span className="rounded-full border border-foreground/15 bg-foreground/[.04] px-3 py-1">Next.js</span>
-            <span className="rounded-full border border-foreground/15 bg-foreground/[.04] px-3 py-1">TypeScript</span>
-            <span className="rounded-full border border-foreground/15 bg-foreground/[.04] px-3 py-1">Tailwind CSS</span>
+          <div className="mt-10 flex flex-wrap gap-2">
+            <Badge variant="outline">React</Badge>
+            <Badge variant="outline">Next.js</Badge>
+            <Badge variant="outline">TypeScript</Badge>
+            <Badge variant="outline">Tailwind CSS</Badge>
           </div>
         </div>
       </div>
