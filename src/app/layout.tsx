@@ -1,6 +1,24 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import ThemeToggle from "@/components/theme-toggle";
+
+function ThemeScript() {
+  return (
+    <script
+      dangerouslySetInnerHTML={{
+        __html: `
+          try {
+            const stored = localStorage.getItem('theme');
+            const preferDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = stored || (preferDark ? 'dark' : 'light');
+            if (theme === 'dark') document.documentElement.classList.add('dark');
+          } catch {}
+        `.trim(),
+      }}
+    />
+  );
+}
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,6 +46,18 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning
       >
+        <ThemeScript />
+        <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-background/70 border-b">
+          <div className="mx-auto w-full max-w-7xl px-6 md:px-10 h-14 flex items-center justify-between">
+            <a href="#" className="font-semibold">Portfolio</a>
+            <nav className="hidden sm:flex items-center gap-6 text-sm">
+              <a href="#projects" className="text-foreground/80 hover:text-foreground">Проєкти</a>
+              <a href="#about" className="text-foreground/80 hover:text-foreground">Про мене</a>
+              <a href="#contact" className="text-foreground/80 hover:text-foreground">Контакти</a>
+            </nav>
+            <ThemeToggle />
+          </div>
+        </header>
         {children}
       </body>
     </html>
